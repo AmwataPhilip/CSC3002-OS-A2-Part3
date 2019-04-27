@@ -4,16 +4,16 @@
 JAVAC = javac
 .SUFFIXES: .java .class
 
-SRCDIR=src
-BINDIR=bin/dishWashS/
+SRCDIR=src/molecule/
+BINDIR=bin/molecule/
 DOCDIR=doc
 
-$(BINDIR)/%.class:%.java
-	$(JAVAC) $<
-	mv dishwashS/*.class $(BINDIR)/
+$(BINDIR)/%.class:$(SRCDIR)%.java
+	$(JAVAC) -cp src $<
+	mv $(SRCDIR)*.class $(BINDIR)/
 
 
-CLASSES = dishwashS/CleaningDishes.class dishwashS/Dryer.class dishwashS/Washer.class dishwashS/WetDishRack.class
+CLASSES = BarrierReusable.class Carbon.class Hydrogen.class Methane.class RunSimulation.class
 
 CLASS_FILES=$(CLASSES:%.class=$(BINDIR)/%.class)
 
@@ -23,4 +23,4 @@ clean:
 	rm -rf $(BINDIR)/*
 
 run:
-	java -cp bin dishWashS.CleaningDishes 6 3 100 100
+	java -cp bin molecule.RunSimulation 4 1
