@@ -1,6 +1,6 @@
 # OS Synchronization
 
-## Part 1
+## Part 3
 
 ## Author: Philip Amwata
 
@@ -8,42 +8,46 @@
 
 ---
 
-    CleaningDishes.java
-    Dryer.java
-    Washer.java
-    WetDishRack.java
+    BarrierReusable.java
+    Carbon.java
+    Hydrogen.java
+    Methane.java
+    RunSimulation.java
 
 ### Implementation Instructions
 
 ---
 
     1. Use make to compile the program
-    2. Use make run to run test case (Threads = 6, Barrier Size = 3, Washer Slackness = 100, Dryer Slackness = 100)
+    2. Use make run to run test case (Number of Carbon = 1, Number of Hydrogen = 4)
 
 ### Makefile Instructions
 
 ---
 
-    1. make - compile CleaningDishes.class Dryer.class Washer.class WetDishRack.class
-    2. make run - run program with test case where Threads = 6, Barrier Size = 3, Washer Slackness = 100, Dryer Slackness = 100
+    1. make - compile BarrierReusable.class Carbon.class Hydrogen.class Methane.class RunSimulation.class
+    2. make run - run program with test case where Number of Carbon = 1, Number of Hydrogen = 4
     3. make clean - delete all .class files from the project
 
 ### Project Structure
 
 ---
 
-    AMWPHI001_CSC3002F_OS2_PartII
+    AMWPHI001_CSC3002F_OS2_PartIII
                                 bin/
+                                    molecule/
+                                            ReusableBarrier.class
+                                            Carbon.class
+                                            Hydrogen.class
+                                            Methane.class
+                                            RunSimulation.class
+                                src/
                                     dishWashS/
-                                            CleaningDishes.class
-                                            Dryer.class
-                                            Washer.class
-                                            WetDishRack.class
-                                dishWashS/
-                                        CleaningDIshes.java
-                                        Dryer.java
-                                        Washer.java
-                                        WetDishRack.java
+                                            ReusableBarrier.java
+                                            Carbon.java
+                                            Hydrogen.java
+                                            Methane.java
+                                            RunSimulation.java
                                 Makefile
                                 README.md
 
