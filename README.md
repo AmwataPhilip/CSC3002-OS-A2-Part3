@@ -19,14 +19,14 @@
 ---
 
     1. Use make to compile the program
-    2. Use make run to run test case (Number of Carbon = 1, Number of Hydrogen = 4)
+    2. Use make run to run test case (Number of Carbon = 3, Number of Hydrogen = 12)
 
 ### Makefile Instructions
 
 ---
 
     1. make - compile BarrierReusable.class Carbon.class Hydrogen.class Methane.class RunSimulation.class
-    2. make run - run program with test case where Number of Carbon = 1, Number of Hydrogen = 4
+    2. make run - run program with test case where Number of Carbon = 3, Number of Hydrogen = 12
     3. make clean - delete all .class files from the project
 
 ### Project Structure

@@ -23,4 +23,4 @@ clean:
 	rm -rf $(BINDIR)/*
 
 run:
-	java -cp bin molecule.RunSimulation 4 1
+	java -cp bin molecule.RunSimulation 12 3
