@@ -1,3 +1,7 @@
+/*
+	Modified by: Philip Amwata
+	Date: 05/05/2019
+*/
 package molecule;
 
 public class Hydrogen extends Thread {
@@ -15,22 +19,21 @@ public class Hydrogen extends Thread {
 
 	public void run() {
 		try {
-			sharedMethane.mutex.acquire();
-			sharedMethane.addHydrogen();
+			sharedMethane.mutex.acquire(); // Sync using mutex lock
+			sharedMethane.addHydrogen(); // Add Hydrogen to methane molecule
+			// Check to see if an entire methane molecule has formed
 			if (sharedMethane.getHydrogen() >= 4 && sharedMethane.getCarbon() >= 1) {
-				sharedMethane.hydrogensQ.release(4);
-				sharedMethane.removeHydrogen(4);
-				sharedMethane.carbonQ.release();
-				sharedMethane.removeCarbon(1);
-			} else if (sharedMethane.getCarbon() == 0 && sharedMethane.getHydrogen() == 1) {
-				System.out.println("---Group ready for bonding---");
-				sharedMethane.mutex.release();
+				sharedMethane.hydrogensQ.release(4); // Release all aquired hydrogen semaphore locks
+				sharedMethane.removeHydrogen(4); // Remove all hydrogen atoms from methane molecule
+				sharedMethane.carbonQ.release(); // Release all aquired cabron locks
+				sharedMethane.removeCarbon(1); // Remove all carbon atoms from methane molecule
+				System.out.println("---Group ready for bonding---"); // Log that a methane molecule is being formed
 			} else {
-				sharedMethane.mutex.release();
+				sharedMethane.mutex.release(); // End mutex sync block
 			}
-			sharedMethane.hydrogensQ.acquire();
-			sharedMethane.bond("H" + this.id);
-			sharedMethane.barrier.b_wait();
+			sharedMethane.hydrogensQ.acquire(); // Aquire a hydrogen semaphore lock
+			sharedMethane.bond("H" + this.id); // Bond hydrogen atom to methane molecule
+			sharedMethane.barrier.b_wait(); // Invoke reusable barrier Phase1() and Phase2()
 		} catch (InterruptedException ex) {
 			/* not handling this */}
 		// System.out.println(" ");
